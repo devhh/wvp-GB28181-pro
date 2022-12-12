@@ -147,7 +147,7 @@ public class ApiDeviceController {
                                                      // 3-基于数字证书的双向认证
             deviceJOSNChannel.put("Status", deviceChannel.getStatus());
             deviceJOSNChannel.put("Longitude", deviceChannel.getLongitude());
-            deviceJOSNChannel.put("Latitude", deviceChannel.getLongitude());
+            deviceJOSNChannel.put("Latitude", deviceChannel.getLatitude());
             deviceJOSNChannel.put("PTZType ", deviceChannel.getPTZType()); // 云台类型, 0 - 未知, 1 - 球机, 2 - 半球,
                                                                             //   3 - 固定枪机, 4 - 遥控枪机
             deviceJOSNChannel.put("CustomPTZType", "");
