@@ -26,17 +26,18 @@ import com.genersoft.iot.vmp.storager.dao.DeviceChannelMapper;
 import com.genersoft.iot.vmp.storager.dao.DeviceMapper;
 import com.genersoft.iot.vmp.utils.DateUtil;
 import com.genersoft.iot.vmp.vmanager.bean.BaseTree;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
+
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.util.StringUtils;
 
 @Service
 public class DeviceServiceImpl implements IDeviceService {
@@ -123,7 +124,7 @@ public class DeviceServiceImpl implements IDeviceService {
             device.setOnline(0);
             this.redisCatchStorage.updateDevice(device);
             this.deviceMapper.update(device);
-            this.deviceChannelMapper.offlineByDeviceId(deviceId);
+//            this.deviceChannelMapper.offlineByDeviceId(deviceId);
             List<SsrcTransaction> ssrcTransactions = this.streamSession.getSsrcTransactionForAll(deviceId, (String)null, (String)null, (String)null);
             if (ssrcTransactions != null && ssrcTransactions.size() > 0) {
                 Iterator var5 = ssrcTransactions.iterator();
