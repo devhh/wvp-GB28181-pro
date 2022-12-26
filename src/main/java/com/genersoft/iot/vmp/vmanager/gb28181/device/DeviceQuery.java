@@ -112,7 +112,7 @@ public class DeviceQuery {
 //			logger.debug("查询所有视频设备API调用");
 //		}
 		
-		return storager.queryVideoDeviceList(page, count);
+		return storager.queryVideoDeviceList(page, count,null);
 	}
 
 	/**

@@ -366,7 +366,7 @@ public class DeviceServiceImpl implements IDeviceService {
                     if (parentId.length() < 14) {
                         return null;
                     } else {
-                        channelsForCivilCode = this.deviceChannelMapper.queryChannels(deviceId, parentId, (String)null, (Boolean)null, (Boolean)null);
+                        channelsForCivilCode = this.deviceChannelMapper.queryChannels(deviceId, parentId, (String)null, (Boolean)null, (Boolean)null,null);
                         trees = this.transportChannelsToTree(channelsForCivilCode, parentId);
                         return trees;
                     }
@@ -404,7 +404,7 @@ public class DeviceServiceImpl implements IDeviceService {
                     if (parentId.length() < 14) {
                         return null;
                     } else {
-                        channels = this.deviceChannelMapper.queryChannels(deviceId, parentId, (String)null, (Boolean)null, (Boolean)null);
+                        channels = this.deviceChannelMapper.queryChannels(deviceId, parentId, (String)null, (Boolean)null, (Boolean)null,null);
                         return channels;
                     }
                 } else {
@@ -476,7 +476,7 @@ public class DeviceServiceImpl implements IDeviceService {
                         }
                     }
                 } else if (haveChannel) {
-                    nonstandardNode = this.deviceChannelMapper.queryChannels(deviceId, (String)null, (String)null, (Boolean)null, (Boolean)null);
+                    nonstandardNode = this.deviceChannelMapper.queryChannels(deviceId, (String)null, (String)null, (Boolean)null, (Boolean)null,null);
                     if (nonstandardNode != null && nonstandardNode.size() > 0) {
                         result.addAll(nonstandardNode);
                     }
