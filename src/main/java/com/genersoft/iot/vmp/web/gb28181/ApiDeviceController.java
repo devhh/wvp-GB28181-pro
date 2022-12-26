@@ -145,7 +145,7 @@ public class ApiDeviceController {
                                                      // 1-IETF RFC3261,
                                                      // 2-基于口令的双向认证,
                                                      // 3-基于数字证书的双向认证
-            deviceJOSNChannel.put("Status", deviceChannel.getStatus());
+            deviceJOSNChannel.put("Status", deviceChannel.getStatus() == 1 ? "ON":"OFF");
             deviceJOSNChannel.put("Longitude", deviceChannel.getLongitude());
             deviceJOSNChannel.put("Latitude", deviceChannel.getLatitude());
             deviceJOSNChannel.put("PTZType ", deviceChannel.getPTZType()); // 云台类型, 0 - 未知, 1 - 球机, 2 - 半球,
