@@ -68,7 +68,7 @@ public interface IVideoManagerStorage {
 	 * @param deviceId 设备ID
 	 * @return
 	 */
-	public List<DeviceChannel> queryChannelsByDeviceId(String deviceId,List<String> channelIds);
+	public List<DeviceChannel> queryChannelsByDeviceId(String deviceId,List<String> channelIds,Boolean online);
 	public List<DeviceChannel> queryOnlineChannelsByDeviceId(String deviceId);
 
 	/**

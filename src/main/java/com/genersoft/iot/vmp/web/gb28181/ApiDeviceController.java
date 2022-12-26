@@ -118,12 +118,12 @@ public class ApiDeviceController {
             String[] split = code.trim().split(",");
             channelIds = Arrays.asList(split);
         }
-        List<DeviceChannel> allDeviceChannelList = storager.queryChannelsByDeviceId(serial,channelIds);
+        List<DeviceChannel> allDeviceChannelList = storager.queryChannelsByDeviceId(serial,channelIds,online);
         if (start == null || limit ==null) {
             deviceChannels = allDeviceChannelList;
             result.put("ChannelCount", deviceChannels.size());
         }else {
-            deviceChannels = storager.queryChannelsByDeviceIdWithStartAndLimit(serial,channelIds, null, null, null,start, limit);
+            deviceChannels = storager.queryChannelsByDeviceIdWithStartAndLimit(serial,channelIds, null, null, online,start, limit);
             int total = allDeviceChannelList.size();
             result.put("ChannelCount", total);
         }
